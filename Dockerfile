@@ -9,5 +9,6 @@ RUN echo "Hello, world" > /etc/motd
 
 # Switch to an end user of our choosing ($END_USER), or root by default
 USER ${END_USER:-root}
+USER 185
 
 CMD [ "/bin/bash", "-c", "while true; do echo hello world; id; sleep 1; done" ]
