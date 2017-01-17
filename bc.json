@@ -1,0 +1,44 @@
+{
+    "kind": "BuildConfig",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "i-need-root",
+        "labels": {
+            "build": "i-need-root"
+        },
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftNewBuild"
+        }
+    },
+    "spec": {
+        "triggers": [
+            {
+                "type": "ConfigChange"
+            }
+        ],
+        "runPolicy": "Serial",
+        "source": {
+            "type": "Git",
+            "git": {
+                "uri": "https://github.com/monodot/i-need-root"
+            }
+        },
+        "strategy": {
+            "type": "Docker",
+            "dockerStrategy": {
+                "from": {
+                    "kind": "ImageStreamTag",
+                    "name": "fis-java-openshift:latest"
+                }
+            }
+        },
+        "output": {
+            "to": {
+                "kind": "ImageStreamTag",
+                "name": "i-need-root:latest"
+            }
+        },
+        "resources": {},
+        "postCommit": {}
+    }
+}
