@@ -1,6 +1,6 @@
 FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift
 
-ARG enduser
+ENV END_USER ${END_USER:root}
 
 USER root
 
@@ -8,5 +8,5 @@ USER root
 RUN echo "Hello, world" > /etc/motd
 
 # Switch to an end user of our choosing ($enduser), or root by default
-USER ${enduser:-root}
+USER ${END_USER:-root}
 
