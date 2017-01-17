@@ -10,4 +10,4 @@ RUN echo "Hello, world" > /etc/motd
 # Switch to an end user of our choosing ($END_USER), or root by default
 USER ${END_USER:-root}
 
-ENTRYPOINT ["bash"]
+CMD [ "/bin/bash" ]
